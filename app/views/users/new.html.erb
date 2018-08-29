@@ -1,2 +1,22 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Register</h1>
+<%= form_for@user do |f|%>
+<%= f.text_field :first_name, placeholder: 'first name'%><br>
+
+<%= f.text_field :last_name, placeholder: 'last name'%><br>
+
+<%= f.number_field :age, placeholder: 'Age'%><br>
+
+<%= f.text_field :job, placeholder: 'Job' %><br>
+
+<%= f.text_field :education, placeholder: 'Education level', required: true%><br>
+
+<%= f.number_field :salary, placeholder: 'Salary' %><br>
+
+<%= f.email_field :email, placeholder: 'email', required: true%><br>
+
+<%= f.password_field :password, placeholder: 'password'%><br>
+
+<%= f.password_field :password_confirmation, placeholder: 'confirm password', required: true %><br>
+
+<%= f.submit 'Register' %><br>
+<% end %>

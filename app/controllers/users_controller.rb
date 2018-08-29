@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -6,14 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      msg = "Thank you for signing up #{@user.full_name}"
-      flash[:success] = msg
       redirect_to @user
     else
       render 'new'
     end
-  end
-
   end
 
   def show
@@ -21,9 +18,20 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def index
+   @user = User.all
   end
 
   def destroy
@@ -32,8 +40,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :bio, :photo, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :age, :job, :education, :salary, :password, :password_confirmation)
   end
-
-
 end
