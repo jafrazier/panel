@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :users
   resources :students
   resources :instructors
-  
+  resources :courses
+
+  get 'courses/new'
+  get 'courses/edit'
+  get 'courses/show'
+  get 'courses/index'
   get 'students/new'
   get 'students/show'
   get 'students/edit'
@@ -16,6 +21,11 @@ Rails.application.routes.draw do
   get 'instructors/edit'
   get 'instructors/show'
   get 'instructors/index'
+
+  get 'courses/new'
+  get 'courses/edit'
+  get 'courses/show'
+  get 'courses/index'
 
 
   get 'register' => 'users#new'

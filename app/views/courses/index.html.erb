@@ -1,0 +1,25 @@
+<h1>Course</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hours</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |cor| %>
+      <tr>
+        <td><%= cor.name %></td>
+        <td><%= cor.hours %></td>
+        <td><%= link_to 'Show', cor %></td>
+        <td><%= link_to 'Edit', edit_course_path(cor)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create new course', courses_new_path %>
