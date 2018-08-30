@@ -1,0 +1,29 @@
+<h1>Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Age</th>
+      <th>Education</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |stu| %>
+      <tr>
+        <td><%= stu.first_name %></td>
+        <td><%= stu.last_name %></td>
+        <td><%= stu.age %></td>
+        <td><%= stu.education %></td>
+        <td><%= link_to 'Show', stu %></td>
+        <td><%= link_to 'Edit', edit_student_path(stu)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Register new student', students_new_path %>
