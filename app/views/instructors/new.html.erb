@@ -1,2 +1,14 @@
-<h1>Instructors#new</h1>
-<p>Find me in app/views/instructors/new.html.erb</p>
+<h1>New instructor</h1>
+<%= form_for@instructor do |f|%>
+<%= f.text_field :first_name, placeholder: 'first name'%><br>
+
+<%= f.text_field :last_name, placeholder: 'last name'%><br>
+
+<%= f.number_field :age, placeholder: 'Age'%><br>
+
+<%= f.number_field :salary, placeholder: 'Salary'%><br>
+
+<%= f.text_field :education, placeholder: 'Education level', required: true%><br>
+
+<%= f.submit 'Submit' %><br>
+<% end %>

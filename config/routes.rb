@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'instructors/new'
-  get 'instructors/edit'
-  get 'instructors/show'
-  get 'instructors/index'
   root 'pages#home'
   resources :users
   resources :students
+  resources :instructors
+  
   get 'students/new'
   get 'students/show'
   get 'students/edit'
@@ -13,6 +11,11 @@ Rails.application.routes.draw do
   get 'students/update'
   get 'students/index'
   get 'students/destroy'
+
+  get 'instructors/new'
+  get 'instructors/edit'
+  get 'instructors/show'
+  get 'instructors/index'
 
 
   get 'register' => 'users#new'
