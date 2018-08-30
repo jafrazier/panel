@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'pages#home'
   resources :users
-  resources :students
-  resources :instructors
-  resources :courses
+  resources :instructors do
+      resources :courses
+      resources :students
+    end
+
 
   get 'courses/new'
   get 'courses/edit'

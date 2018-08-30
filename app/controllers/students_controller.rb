@@ -2,10 +2,14 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @instructor = Instructor.find(params[:instructor_id])
+    @course = Course.where(instructor_id: @instructor.id)
   end
 
   def create
+    @instructor = Instructor.find(params[:instructor_id])
     @student = Student.new(student_params)
+    @student.instructor_id = @instructor.id
     if @student.save
       redirect_to @student
     else

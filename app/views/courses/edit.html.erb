@@ -1,8 +1,8 @@
-<h1>Update course</h1>
-<%= form_for@course do |f|%>
+<h1>New course</h1>
+<%= form_for([@instructor,@course])do |f|%>
 <%= f.text_field :name, placeholder: 'Name'%><br>
 
 <%= f.number_field :hours, placeholder: 'Hours'%><br>
 
-<%= f.submit 'Update' %><br>
+<%= f.submit 'Submit' %><br>
 <% end %>
