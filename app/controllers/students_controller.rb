@@ -2,12 +2,12 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    @instructor = Instructor.find(params[:instructor_id])
+    @instructor = Instructor.find(params[:id])
     @course = Course.where(instructor_id: @instructor.id)
   end
 
   def create
-    @instructor = Instructor.find(params[:instructor_id])
+    @instructor = Instructor.find(params[:id])
     @student = Student.new(student_params)
     @student.instructor_id = @instructor.id
     if @student.save
@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    @instructor = Instructor.find(params[:id])
     @student = Student.find(params[:id])
   end
 

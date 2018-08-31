@@ -1,7 +1,7 @@
 <h2>Welcome <%= @instructor.first_name %> <%= @instructor.last_name %> </h2>
 <%= link_to 'edit', edit_instructor_path%>
 <% @instructor.courses.each do |cor| %>
-  <h5><%= link_to "#{cor.name}", instructor_couse_path(@instructor.id, cor.id) %></h5>
+  <h4><%= link_to "#{cor.name}", instructor_course_path(@instructor.id, cor.id) %></h4>
   <% end %>
   <hr>
 <%= link_to 'Create a Course', new_instructor_course_path(@instructor.id) %>

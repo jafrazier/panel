@@ -1,12 +1,12 @@
 class CoursesController < ApplicationController
 
   def new
-    @instructor = Instructor.find(params[:instructor_id])
+    @instructor = Instructor.find(params[:id])
     @course = Course.new
   end
 
   def create
-    @instructor = Instructor.find(params[:instructor_id])
+    @instructor = Instructor.find(params[:id])
     @course = Course.new(course_params)
     @course.instructor_id = @instructor.id
     if @course.save
@@ -21,14 +21,14 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @instructor = Instructor.find(params[:id])
     @course = Course.find(params[:id])
   end
 
   def update
-    @instructor = Instructor.find(params[:instructor_id])
     @course = Course.find(params[:id])
     if @course.update(course_params)
-      redirect_to instructor_course_path(@course.instructor_id, @course)
+      redirect_to instructor_course_path(:instructor_id, @course.id)
     else
       render 'edit'
     end
@@ -45,7 +45,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :hours)
+    params.require(:course).permit(:name, :hours, :instructor_id)
   end
 
   def find_course

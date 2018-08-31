@@ -13,8 +13,8 @@
       <tr>
         <td><%= cor.name %></td>
         <td><%= cor.hours %></td>
-        <td><%= link_to 'Show', cor %></td>
-        <td><%= link_to 'Edit', edit_course_path(cor)%></td>
+        <td><%= link_to 'Show', instructor_course_path(:instructor_id ,cor) %></td>
+        <!-- <td><%# link_to 'Edit', edit_course_path(cor)%></td> -->
       </tr>
     <% end %>
   </tbody>
